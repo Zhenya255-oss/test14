@@ -1,0 +1,19 @@
+{% if registered %}
+<h1>Thank you for registering!</h1>
+{% else %}
+<h1>Register Here</h1>
+<h2>Sign up</h2>
+  <form id="update_user_form" method="POST" enctype="multipart/form-data">
+    {% if user_form %}
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {% endif %}
+    {% if profile_form %}
+    {% csrf_token %}
+    {{profile_form.as_p}}
+    {% endif %}
+    <button type="submit">Sign up</button>
+  </form>
+{% endif %}
+
+

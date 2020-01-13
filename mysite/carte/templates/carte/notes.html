@@ -1,0 +1,41 @@
+<h1>Notes</h1>
+<p>{{user}}</p>
+<p>{{user.account_type}}</p>
+<li><a href="{% url 'myway' user %}"> Way </a></li>
+<li><a href="{%  url 'account' user %}"> LifeStyle </a></li>
+{% if owner %}
+
+<li><a href="{% url 'myinfluencers' user %}"> My Influencers </a></li>
+<li><a href="{% url 'consultations' user %}"> Consultations </a></li>
+
+<form action = "" method = "post">
+{% csrf_token %}
+<input type = "text" name = "usersearch" placeholder = "Search user.."><br>
+    <input type = "Submit">
+</form>
+{% if searched_user %}
+    <img src="{{searched_user.userprofile.profile_pic.url}}" width="30">
+    <li><a href="{% url 'account' searched_user %}"> {{searched_user}} </a></li>
+{% endif %}
+<form id="note" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+    {{ note_form.as_p }}
+<button type="submit">Publish</button>
+</form>
+{% endif %}
+{% if not owner %}
+
+{% endif %}
+{% for post in post_list %}
+<li>{{post.text}}</li>
+{{post.likecount}}
+<a target="_blank"
+    class="btn btn-info pull-right"
+    href = "{% url 'likepost' user=user post_id=post.post_id  %}" >
+    Like
+</a>
+
+{% endfor %}
+
+
+

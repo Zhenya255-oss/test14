@@ -1,0 +1,24 @@
+<h1>Way</h1>
+<img class="image2" src="{{user.profile_pic.url}}" width="240">
+<p>{{user}}</p>
+<p>{{user.account_type}}</p>
+<li><a href="{% url 'account' user %}"> Life Style </a></li>
+<li><a href="{% url 'notes' user %}"> Notes </a></li>
+
+{% if owner %}
+
+<li><a href="{% url 'myinfluencers' user %}"> My Influencers </a></li>
+<li><a href="{% url 'consultations' user %}"> Consultations </a></li>
+
+<form action = "" method = "post">
+{% csrf_token %}
+<input type = "text" name = "usersearch" placeholder = "Search user.."><br>
+    <input type = "Submit">
+</form>
+{% if searched_user %}
+    <img src="{{searched_user.userprofile.profile_pic.url}}" width="30">
+    <li><a href="{% url 'account' searched_user %}"> {{searched_user}} </a></li>
+{% endif %}
+{% endif %}
+<p>{{user.way_desc}}</p>
+
