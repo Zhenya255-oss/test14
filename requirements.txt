@@ -28,8 +28,6 @@ pycparser==2.19
 pypiwin32==223
 python-dateutil==2.8.0
 pytz==2019.3
-pywin32==225
-pywin32-ctypes==0.2.0
 requests==2.22.0
 requests-aws4auth==0.9
 s3transfer==0.2.1
