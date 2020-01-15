@@ -25,7 +25,8 @@ app_name = 'carte'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('carte/', include('carte.urls')),
+    path('', include('carte.urls')),
+    #path('carte/', include('carte.urls')),
 ]
 if settings.DEBUG:
         urlpatterns += static(settings.MEDIA_URL,
