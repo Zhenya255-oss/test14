@@ -1,1 +1,1 @@
-web: gunicorn Cartecamp.wsgi --log-file -
+web: gunicorn Carte.wsgi --log-file -
