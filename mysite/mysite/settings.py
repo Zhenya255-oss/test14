@@ -129,6 +129,3 @@ STATIC_ROOT = PROJECT_ROOT
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    PROJECT_ROOT,
-)
